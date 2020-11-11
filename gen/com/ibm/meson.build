@@ -2,6 +2,7 @@
 subdir('Dump')
 subdir('Logging')
 subdir('VPD')
+subdir('Host')
 generated_others += custom_target(
     'com/ibm/VPD__markdown'.underscorify(),
     input: [ meson.project_source_root() / 'com/ibm/VPD.errors.yaml',  ],
