@@ -82,6 +82,20 @@ generated_others += custom_target(
     ],
 )
 
+subdir('ACF')
+generated_others += custom_target(
+    'xyz/openbmc_project/Certs/ACF__markdown'.underscorify(),
+    input: [ '../../../../yaml/xyz/openbmc_project/Certs/ACF.interface.yaml',  ],
+    output: [ 'ACF.md' ],
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'xyz/openbmc_project/Certs/ACF',
+    ],
+)
+
 subdir('Replace')
 generated_others += custom_target(
     'xyz/openbmc_project/Certs/Replace__markdown'.underscorify(),
