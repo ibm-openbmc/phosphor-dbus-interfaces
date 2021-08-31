@@ -1,0 +1,32 @@
+description: >
+    Implement to represent a license which enables features on system
+    Customer installs license to unlock certain resources or features
+    Each object implements xyz.openbmc_project.License.Entry interface
+    which has LicenseName and State properties
+    and implements xyz.openbmc_project.Object.Delete interface.
+properties:
+
+    - name: LicenseName
+      type: string
+      description: >
+         Name of license 
+    - name: State
+      type: enum[self.Status]
+      default: Unknown
+      description: >
+          The current state of the license.
+enumerations:
+    - name: Status
+      description: >
+        License status enumerations
+      values:
+        - name: Unknown
+          description: >
+            Indicates that given license state is unknown
+        - name: Enabled
+          description: >
+            Indicates that given license state is activated
+        - name: Disabled
+          description: >
+            Indicates that given license state is disabled
+
