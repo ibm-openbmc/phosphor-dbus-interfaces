@@ -1,0 +1,40 @@
+description: >
+    ACF interface to install access control file.
+methods:
+    - name: InstallACF
+      description: >
+          Install the ACF onto the system if checks have been passed.
+      parameters:
+          - name: ACFFile
+            type: array[byte]
+            description: >
+                Binary data of ACF file
+
+      returns:
+          - name: acfInfo
+            type: struct[array[byte],boolean,string]
+            description: >
+                Returns info about acf installation.
+                acfFile contents, isACFInstalled, expirationDate of ACF
+
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.NotAllowed
+          - xyz.openbmc_project.Certs.Error.InvalidCertificate
+
+    - name: GetACFInfo
+      description: >
+          Get info about ACF file
+
+      returns:
+          - name: acfInfo
+            type: struct[array[byte],boolean,string]
+            description: >
+                Returns info about acf installation.
+                acfFile contents, isACFInstalled, expirationDate of ACF
+
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.NotAllowed
+          - xyz.openbmc_project.Certs.Error.InvalidCertificate
+
