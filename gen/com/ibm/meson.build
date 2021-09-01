@@ -1,8 +1,8 @@
 # Generated file; do not modify.
 subdir('Dump')
+subdir('Host')
 subdir('Logging')
 subdir('VPD')
-subdir('Host')
 generated_others += custom_target(
     'com/ibm/VPD__markdown'.underscorify(),
     input: [ '../../../yaml/com/ibm/VPD.errors.yaml',  ],
