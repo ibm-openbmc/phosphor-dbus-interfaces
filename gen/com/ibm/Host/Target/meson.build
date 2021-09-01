@@ -1,7 +1,7 @@
 # Generated file; do not modify.
 generated_sources += custom_target(
     'com/ibm/Host/Target__cpp'.underscorify(),
-    input: ['../../../../../yaml/com/ibm/Host/Target.interface.yaml',  ],
+    input: [ '../../../../../yaml/com/ibm/Host/Target.interface.yaml',  ],
     output: [ 'server.cpp', 'server.hpp', 'client.hpp',  ],
     command: [
         sdbuspp_gen_meson_prog, '--command', 'cpp',
