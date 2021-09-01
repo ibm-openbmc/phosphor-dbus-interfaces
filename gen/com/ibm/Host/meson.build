@@ -11,6 +11,5 @@ generated_others += custom_target(
         '--directory', meson.current_source_dir() / '../../../../yaml',
         'com/ibm/Host/Target',
     ],
-    build_by_default: true,
 )
 
