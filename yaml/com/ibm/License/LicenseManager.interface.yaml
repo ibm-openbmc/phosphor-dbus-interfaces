@@ -1,0 +1,41 @@
+description: >
+      This Method accepts license key and forwards to host
+properties:
+     - name: LicenseString
+       type: string
+       description: >
+         License string of 34 characters.
+     - name: LicenseActivationStatus
+       type: enum[self.Status]
+       default: Pending
+       description: >
+         License Activation status
+enumerations:
+     - name: Status
+       description: >
+         Status enumerations
+       values:
+        - name: InvalidLicense
+          description: >
+            Indicates that given license is not valid
+        - name: Activated
+          description: >
+            Indicates that given license is activated
+        - name: Pending
+          description: >
+            Indicates that given license activation is yet to happen
+        - name: ActivationFailed
+          description: >
+            Indicates that given license activation failed
+        - name: IncorrectSystem
+          description: >
+            The license is valid, but not for the system it was installed on.
+        - name: InvalidHostState
+          description: >
+            Indicates that given license activation failed due to invalid host state
+        - name: IncorrectSequence
+          description: >
+            Indicates that given license activation failed due to invalid host state
+            The license is valid on this system, but is in the incorrect sequence.
+            (eg, was entered more than once)
+
