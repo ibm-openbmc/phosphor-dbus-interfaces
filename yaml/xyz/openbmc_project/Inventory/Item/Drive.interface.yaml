@@ -2,6 +2,16 @@ description: >
     Implement to provide drive attributes.
 
 properties:
+    - name: Capacity
+      default: 0
+      type: uint64
+      description: >
+          The size in bytes of the Drive. `0` if cannot be determined.
+    - name: Protocol
+      default: Unknown
+      type: enum[self.DriveProtocol]
+      description: >
+          The communication protocol used by the Drive.
     - name: Type
       default: Unknown
       type: enum[self.DriveType]
@@ -9,6 +19,25 @@ properties:
           The type of physical form factor of the Drive.
 
 enumerations:
+    - name: DriveProtocol
+      description: >
+          Possible communication protocol types
+      values:
+          - name: SAS
+            description: >
+                Serial Attached SCSI.
+          - name: SATA
+            description: >
+                Serial AT Attachment.
+          - name: NVMe
+            description: >
+                Non-Volatile Memory Express.
+          - name: FC
+            description: >
+                Fibre Channel.
+          - name: Unknown
+            description: >
+                The Drive protocol is unknown.
     - name: DriveType
       description: >
           Possible Drive type
