@@ -61,3 +61,7 @@ enumerations:
                 Type of the originator that initiated the respective operation.
                 This property is defined in xyz.openbmc_project.
                 Common.OriginatedBy interface.
+          - name: 'GeneratorId'
+            description: >
+                A unique id of the user that initiated the dump creation. The
+                value must be a string.
