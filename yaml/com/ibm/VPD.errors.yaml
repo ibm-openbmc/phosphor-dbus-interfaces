@@ -30,3 +30,9 @@
                as system type is unknown.
                Please check the HW and IM keywords in the system VPD
                and check if they are programmed correctly.
+- name: GPIOError
+  description: GPIO error occurred. It could be GPIO line not found,
+               or couldn't request for input/output to it.
+               Need to check it's address on appropriate I2C line.
+  inherits:
+     - xyz.openbmc_project.Common.Callout.IIC
