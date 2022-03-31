@@ -1,0 +1,17 @@
+description: >
+      This interface is used by applications on bmc to request
+      the PCIE topology information.
+properties:
+     - name: PCIeTopologyRefresh
+       type: boolean
+       description: >
+         This property when set to 'true' refreshes the
+         topology information. The application which uses this should
+         set it to 'false' when a refresh occurs.
+     - name: SavePCIeTopologyInfo
+       type: boolean
+       description: >
+         This property when set to 'true' saves the topology
+         information. The information is saved
+         in the form of a PEL(Error Log).
+
