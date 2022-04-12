@@ -12,3 +12,12 @@
   meta:
     - str: "IMAGE_VERSION=%s"
       type: string
+- name: ExpiredAccessKey
+  level: ERR
+  meta:
+    - str: "EXP_DATE=%s"
+      type: string
+    - str: "BUILD_ID=%s"
+      type: string
+- name: InvalidSignature
+  level: ERR
