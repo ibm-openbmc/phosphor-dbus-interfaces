@@ -7,7 +7,12 @@
       prevented from powering on if a minimum version level is not met.
 - name: AlreadyExists
   description: >
-      This image version already exists on the device
+    This image version already exists on the device
+- name: ExpiredAccessKey
+  description: >
+    The build date of the image occurs after the Update Access Key date
+    indicated on the machine. Update will not be possible for this Software
+    version.
 - name: InvalidSignature
   description: >
-      Signature Validation failed for image version.
+    Signature Validation failed for image version.
