@@ -1,0 +1,9 @@
+#xyz.openbmc_project.Software.LID.Error.InvalidAccessKey
+- name: ExpiredAccessKey
+  descripton: Update access key is invalid.
+#xyz.openbmc_project.Software.LID.Error.InvalidSignature
+- name: InvalidSignature
+  descripton: Signature is invalid.
+#xyz.openbmc_project.Software.LID.Error.Incompatible
+- name: Incompatible
+  description: Image type is Incompatible.

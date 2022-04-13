@@ -1,0 +1,15 @@
+description: >
+    An interface to validate marker LID before starting inband code update.
+methods:
+    - name: Validate
+      descripton: >
+          Validate file in staging directory given the lid value 7.
+      parameters:
+          - name: imagePath
+            type: string
+            descripton: >
+                Path to image.
+      errors:
+          - xyz.openbmc_project.Software.Version.Error.InvalidSignature
+          - xyz.openbmc_project.Software.Version.Error.ExpiredAccessKey
+          - xyz.openbmc_project.Software.Version.Error.Incompatible

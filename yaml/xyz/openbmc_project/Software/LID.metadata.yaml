@@ -1,0 +1,9 @@
+- name: Incompatible
+  inherits: 
+    - xyz.openbmc_project.Software.Version.Incompatible 
+- name: ExpiredAccessKey
+  inherits: 
+    - xyz.openbmc_project.Software.Version.ExpiredAccessKey
+- name: InvalidSignature
+  inherits: 
+    - xyz.openbmc_project.Software.Version.InvalidSignature
