@@ -287,3 +287,18 @@ properties:
       type: string
       description: >
           The name of the Manufacturer for this device.
+
+    - name: LanesInUse
+      type: size
+      default: 0
+      description: >
+          The number of PCIe lanes in use by this device.
+
+associations:
+    - name: upstream_pcie_slot
+      description: >
+          Objects that implement PCIeDevice can optionally implement the
+          upstream_pcie_slot association to provide a link back to a PCIe slot.
+      reverse_name: associated_pcie_device
+      required_endpoint_interfaces:
+        - xyz.openbmc_project.Inventory.Item.PCIeSlot
