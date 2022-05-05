@@ -29,6 +29,12 @@ properties:
       type: size
       description: >
           Identifier to detect the PCIe bus linked to the slot.
+    
+    - name: LinkStatus
+      type: enum[self.Status]
+      default: 'Unknown'
+      description: >
+          Status of PCIe bus linked to the slot.
 
 enumerations:
     - name: Generations
@@ -102,6 +108,34 @@ enumerations:
         - name: 'Unknown'
           description: >
               Type of the PCIe slot is unknown
+
+    - name: Status
+      description: >
+          Possible link status
+      values:
+          - name: 'Operational'
+            description: >
+                Link is operational
+
+          - name: 'Degraded'
+            description: >
+                Link is degraded
+
+          - name: 'Failed'
+            description: >
+                Link failed
+
+          - name: 'Open'
+            description: >
+                Link is open
+                
+          - name: 'Inactive'
+            description: >
+                Link is inactive
+
+          - name: 'Unknown'
+            description: >
+                Link status is unknown
 
 associations:
     - name: upstream_processor
