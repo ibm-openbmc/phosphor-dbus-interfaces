@@ -289,10 +289,12 @@ properties:
           The name of the Manufacturer for this device.
 
     - name: LanesInUse
-      type: size
-      default: 0
+      type: int64
+      default: -1
       description: >
           The number of PCIe lanes in use by this device.
+          Default value of -1 is to accommodate the situation where value of
+          this property cannot be updated due to some unknown reason.
 
 associations:
     - name: upstream_pcie_slot
