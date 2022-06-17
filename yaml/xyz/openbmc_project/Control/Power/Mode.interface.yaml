@@ -1,6 +1,29 @@
 description: >
     Customer requested system power mode.
 
+methods:
+    - name: PowerModeLock
+      description: >
+          Lock power mode of the system.
+      returns:
+        - name: status
+          type: boolean
+          description: >
+              This method is used to set the read-only PowerModeLocked property
+              to true.
+      flags:
+      - hidden
+    - name: PowerModeLockStatus
+      description: >
+          Get power mode lock status.
+      returns:
+        - name: status
+          type: boolean
+          description: >
+              This method is used to get the powermode lock status.
+      flags:
+      - hidden
+
 properties:
     - name: PowerMode
       type: enum[self.PowerMode]
@@ -8,6 +31,8 @@ properties:
           This property shall contain the computer system power mode setting.
           This defines the processor speed based on the priority of power
           consumption and performance.
+      errors:
+        - xyz.openbmc_project.Common.Error.NotAllowed
     - name: SafeMode
       type: boolean
       flags:
