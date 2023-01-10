@@ -26,8 +26,8 @@ properties:
       type: enum[self.HostResponse]
       description: >
           The host will send a response code for each request to create a
-          resource dump to indicate whether the request is successful or
-          there is an error.
+          resource dump to indicate whether the request is successful or there
+          is an error.
       default: Requested
 
 enumerations:
@@ -36,22 +36,22 @@ enumerations:
           These are the possible response codes from the host after sending a
           resource dump request.
       values:
-        - name: Requested
-          description: >
-              Requested for resource dump and awaiting the host response
-        - name: Success
-          description: >
-              Resource dump parameters and ACF data are successfully validated
-        - name: AcfFileInvalid
-          description: >
-              Invalid ACF file
-        - name: PasswordInvalid
-          description: >
-              Password provided is not valid
-        - name: PermissionDenied
-          descVSPtion: >
-              Caller does not have enough privileges to execute the requested
-              VSP string
-        - name: ResourceSelectorInvalid
-          description: >
-              Resource selector(VSP String) provided is not valid
+          - name: Requested
+            description: >
+                Requested for resource dump and awaiting the host response
+          - name: Success
+            description: >
+                Resource dump parameters and ACF data are successfully validated
+          - name: AcfFileInvalid
+            description: >
+                Invalid ACF file
+          - name: PasswordInvalid
+            description: >
+                Password provided is not valid
+          - name: PermissionDenied
+            descVSPtion: >
+                Caller does not have enough privileges to execute the requested
+                VSP string
+          - name: ResourceSelectorInvalid
+            description: >
+                Resource selector(VSP String) provided is not valid

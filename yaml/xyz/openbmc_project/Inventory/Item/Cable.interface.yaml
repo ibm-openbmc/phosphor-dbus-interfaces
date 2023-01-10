@@ -19,7 +19,7 @@ properties:
           empty string.
     - name: CableStatus
       type: enum[self.Status]
-      default: 'Unknown'
+      default: "Unknown"
       description: >
           The status of the cable. The default status is unknown.
 enumerations:
@@ -27,48 +27,44 @@ enumerations:
       description: >
           Possible cable status
       values:
-          - name: 'Inactive'
+          - name: "Inactive"
             description: >
                 Cable is inactive.
-          - name: 'Running'
+          - name: "Running"
             description: >
                 Cable is running.
-          - name: 'PoweredOff'
+          - name: "PoweredOff"
             description: >
                 Cable is powered off.
-          - name: 'Unknown'
+          - name: "Unknown"
             description: >
                 Cable status is unknown.
 associations:
     - name: downstream_chassis
       description: >
           Objects that implement Cable can optionally implement the
-          downstream_chassis association to provide a link to the
-          chassis.
+          downstream_chassis association to provide a link to the chassis.
       reverse_name: attached_cables
       required_endpoint_interfaces:
-        - xyz.openbmc_project.Inventory.Item.Chassis
+          - xyz.openbmc_project.Inventory.Item.Chassis
 
     - name: upstream_chassis
       description: >
           Objects that implement Cable can optionally implement the
           uptream_chassis association to provide a link to the chassis.
-      reverse_name: attached_cables
-        - xyz.openbmc_project.Inventory.Item.Chassis
+      reverse_name: attached_cables - xyz.openbmc_project.Inventory.Item.Chassis
 
     - name: upstream_connector
       description: >
           Objects that implement Cable can optionally implement the
-          upstream_connector association to provide a link to the
-          connector.
+          upstream_connector association to provide a link to the connector.
       reverse_name: attached_cables
       required_endpoint_interfaces:
-        - xyz.openbmc_project.Inventory.Item.Connector
+          - xyz.openbmc_project.Inventory.Item.Connector
     - name: downstream_connector
       description: >
           Objects that implement Cable can optionally implement the
-          downstream_connector association to provide a link to the
-          connector.
+          downstream_connector association to provide a link to the connector.
       reverse_name: attached_cables
       required_endpoint_interfaces:
-        - xyz.openbmc_project.Inventory.Item.Connector
+          - xyz.openbmc_project.Inventory.Item.Connector

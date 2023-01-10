@@ -4,6 +4,7 @@ generated_others += custom_target(
     'com/ibm/License/Entry/LicenseEntry__markdown'.underscorify(),
     input: [ '../../../../../yaml/com/ibm/License/Entry/LicenseEntry.interface.yaml',  ],
     output: [ 'LicenseEntry.md' ],
+    depend_files: sdbusplusplus_depfiles,
     command: [
         sdbuspp_gen_meson_prog, '--command', 'markdown',
         '--output', meson.current_build_dir(),
