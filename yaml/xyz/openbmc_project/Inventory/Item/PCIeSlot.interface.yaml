@@ -25,13 +25,13 @@ properties:
       description: >
           Whether this PCIe slot supports hotplug
 
-     - name: LinkStatus
+    - name: LinkStatus
       type: enum[self.Status]
-      default: 'Unknown'
+      default: "Unknown"
       description: >
           Status of PCIe bus linked to the slot.
 
-     - name: BusId
+    - name: BusId
       type: size
       description: >
           Identifier to detect the PCIe bus linked to the slot.
@@ -108,27 +108,28 @@ enumerations:
           - name: "Unknown"
             description: >
                 Type of the PCIe slot is unknown
+
     - name: Status
       description: >
           Possible link status
       values:
-          - name: 'Operational'
+          - name: "Operational"
             description: >
                 Link is operational
-          - name: 'Degraded'
+          - name: "Degraded"
             description: >
                 Link is degraded
-          - name: 'Failed'
+          - name: "Failed"
             description: >
                 Link failed
-          - name: 'Open'
+          - name: "Open"
             description: >
                 Link is open
-                
-          - name: 'Inactive'
+
+          - name: "Inactive"
             description: >
                 Link is inactive
-          - name: 'Unknown'
+          - name: "Unknown"
             description: >
                 Link status is unknown
 
