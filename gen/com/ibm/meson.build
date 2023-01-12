@@ -1,7 +1,9 @@
 # Generated file; do not modify.
+subdir('Control')
 subdir('Dump')
 subdir('License')
 subdir('Logging')
+subdir('PLDM')
 subdir('VPD')
 subdir('Host')
 generated_others += custom_target(
