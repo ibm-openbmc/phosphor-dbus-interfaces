@@ -8,7 +8,7 @@ associations:
           Objects that implement Connector can optionally implement the
           attached_cables association to provide a link to the cable.
       reverse_names:
-        - upstream_connector
-        - downstream_connector
+          - upstream_connector
+          - downstream_connector
       required_endpoint_interfaces:
-        - xyz.openbmc_project.Inventory.Item.Cable
+          - xyz.openbmc_project.Inventory.Item.Cable

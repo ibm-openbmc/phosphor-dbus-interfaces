@@ -39,18 +39,18 @@ enumerations:
       description: >
           Possiable severity levels for the event.
       values:
-        - name: Unknown
-          description: >
-              The event severity is unknown.
-        - name: Ok
-          description: >
-              The event severity is normal and attention is not required.
-        - name: Critical
-          description: >
-              The event severity is critical and requires immediate attention.
-        - name: Warning
-          description: >
-              The event severity is warning and requires attention.
+          - name: Unknown
+            description: >
+                The event severity is unknown.
+          - name: Ok
+            description: >
+                The event severity is normal and attention is not required.
+          - name: Critical
+            description: >
+                The event severity is critical and requires immediate attention.
+          - name: Warning
+            description: >
+                The event severity is warning and requires attention.
 
 associations:
     - name: event_indicator
@@ -58,14 +58,13 @@ associations:
           The object that implements this event interface can implement the
           event_indicator association to represent the status of the pointed
           object through this association link so the pointed object can use
-          "reverse_name" to get more details about the event and indicate
-          the status and vice versa.
+          "reverse_name" to get more details about the event and indicate the
+          status and vice versa.
       reverse_name: event_log
     - name: error_log
       description: >
           The object that implements this event interface can implement the
-          error_log association to point the error log object that can be
-          used to get more details about the event.
+          error_log association to point the error log object that can be used
+          to get more details about the event.
       reverse_name: event_log
-      required_endpoint_interfaces:
-          xyz.openbmc_project.Logging.Entry
+      required_endpoint_interfaces: xyz.openbmc_project.Logging.Entry

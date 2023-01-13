@@ -4,6 +4,7 @@ generated_others += custom_target(
     'com/ibm/Control/Host/PCIeLink__markdown'.underscorify(),
     input: [ '../../../../../yaml/com/ibm/Control/Host/PCIeLink.interface.yaml',  ],
     output: [ 'PCIeLink.md' ],
+    depend_files: sdbusplusplus_depfiles,
     command: [
         sdbuspp_gen_meson_prog, '--command', 'markdown',
         '--output', meson.current_build_dir(),
