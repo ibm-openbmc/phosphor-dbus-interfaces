@@ -1,0 +1,17 @@
+description: >
+    An inband code update through PLDM uses LID files for the firmware updates.
+    This interface provides methods to validate and process LID files.
+methods:
+    - name: Validate
+      descripton: >
+          An interface to validate marker LID before starting inband code
+          update.
+      parameters:
+          - name: imagePath
+            type: string
+            descripton: >
+                Path to image.
+      errors:
+          - xyz.openbmc_project.Software.Version.Error.InvalidSignature
+          - xyz.openbmc_project.Software.Version.Error.ExpiredAccessKey
+          - xyz.openbmc_project.Software.Version.Error.Incompatible
