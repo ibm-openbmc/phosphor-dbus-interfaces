@@ -15,3 +15,7 @@ methods:
           - xyz.openbmc_project.Software.Version.Error.InvalidSignature
           - xyz.openbmc_project.Software.Version.Error.ExpiredAccessKey
           - xyz.openbmc_project.Software.Version.Error.Incompatible
+    - name: AssembleCodeUpdateImage
+      description: >
+          Assemble all the lid files received from host during inband code
+          update and create a tar ball image for code update.
