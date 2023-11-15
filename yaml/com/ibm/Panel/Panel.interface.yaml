@@ -1,0 +1,41 @@
+description: >
+    Implements control panel activities.
+methods:
+    - name: TriggerPanelLampTest
+      description: >
+          Method to trigger lamp test on panel.
+      parameters:
+          - name: status
+            type: boolean
+            description: >
+                Panel lamp test status on/off.
+
+    - name: ExecuteFunction
+      description: >
+          Method to execute the function that is returned by
+          getEnabledFunctions.
+      parameters:
+          - name: function_number
+            type: byte
+            description: >
+                Function to be executed.
+      returns:
+          - name: output
+            type: struct[boolean, string, string]
+            description: >
+                Tuple with values return code, panel display line1, panel
+                display line2, if the execution is successful.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.NotAllowed
+
+    - name: getEnabledFunctions
+      description: >
+          Method to provide list of enabled functions which can be triggerred
+          directly from apps using ExecuteFunction d-bus method.
+      returns:
+          - name: enabled functions list
+            type: array[byte]
+            description: >
+                Returns the list of enabled functions which can be executed from
+                other apps.
