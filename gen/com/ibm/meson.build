@@ -5,6 +5,7 @@ subdir('Host')
 subdir('License')
 subdir('Logging')
 subdir('PLDM')
+subdir('Panel')
 subdir('VPD')
 generated_others += custom_target(
     'com/ibm/VPD__markdown'.underscorify(),
