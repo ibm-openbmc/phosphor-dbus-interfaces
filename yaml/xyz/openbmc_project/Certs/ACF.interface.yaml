@@ -14,8 +14,8 @@ methods:
           - name: acfInfo
             type: struct[array[byte],boolean,string]
             description: >
-                Returns info about acf installation.
-                acfFile contents, isACFInstalled, expirationDate of ACF
+                Returns info about acf installation. acfFile contents,
+                isACFInstalled, expirationDate of ACF
 
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
@@ -30,11 +30,10 @@ methods:
           - name: acfInfo
             type: struct[array[byte],boolean,string]
             description: >
-                Returns info about acf installation.
-                acfFile contents, isACFInstalled, expirationDate of ACF
+                Returns info about acf installation. acfFile contents,
+                isACFInstalled, expirationDate of ACF
 
       errors:
           - xyz.openbmc_project.Common.Error.InternalFailure
           - xyz.openbmc_project.Common.Error.NotAllowed
           - xyz.openbmc_project.Certs.Error.InvalidCertificate
-
