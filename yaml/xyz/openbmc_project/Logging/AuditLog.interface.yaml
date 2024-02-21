@@ -26,7 +26,7 @@ methods:
             type: uint32
             description:
                 Defines the maximum number of entries to return. Minimum value
-                is 1.
+                is 0.
       returns:
           - name: logFd
             type: unixfd
