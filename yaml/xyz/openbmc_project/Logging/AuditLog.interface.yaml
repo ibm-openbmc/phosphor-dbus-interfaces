@@ -1,0 +1,45 @@
+description: >
+    This interface provides methods to extract the Linux audit logged events.
+methods:
+    - name: GetAuditLog
+      description: >
+          Parses all previously recorded log events into JSON format. Returns a
+          read-only file descriptor to the parsed file. Entries are sorted
+          oldest to newest.
+      returns:
+          - name: logFd
+            type: unixfd
+            description: >
+                The read-only file descriptor of the JSON formatted log events.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.File.Error.Write
+          - xyz.openbmc_project.Common.File.Error.Open
+
+    - name: GetLatestEntries
+      description: >
+          Parses a subset of previously recorded log events into JSON format.
+          Returns a read-only file descriptor to the parsed file. Entries are
+          sorted newest to oldest.
+      parameters:
+          - name: maxCount
+            type: uint32
+            description:
+                Defines the maximum number of entries to return. Minimum value
+                is 0.
+      returns:
+          - name: logFd
+            type: unixfd
+            description: >
+                The read-only file descriptor of the JSON formatted log events.
+      errors:
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.File.Error.Write
+          - xyz.openbmc_project.Common.File.Error.Open
+
+paths:
+    - instance: /xyz/openbmc_project/logging/AuditLog
+      description: Expected path of the instance.
+service_names:
+    - default: xyz.openbmc_project.logging.AuditLog
+      description: Expected service name for the instance.
