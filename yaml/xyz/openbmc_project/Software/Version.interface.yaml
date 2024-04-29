@@ -1,24 +1,16 @@
 description: >
-    Simple definition of a Software or Firmware version. Note that this
-    interface may be implemented by D-Bus objects that do not necessarily
-    contain a software level. For example an OpenBMC log may implement this
-    interface to store the software level of the BMC or Host for debug purposes.
-    If looking for real software versions associated with a device then ensure
-    this interface is under the /xyz/openbmc_project/software object path.
+    Implement to provide IBM Power Supply firmware update.
 properties:
     - name: Version
       type: string
       description: >
-          The version identifier.
+          The firmware level is defined by IBM to identify the PSU firmware
+          version.
     - name: Purpose
       type: enum[self.VersionPurpose]
       description: >
-          The purpose of the version.  As in, what can it be used for or applied
-          to?
+          Firmware enhancement
 
-          This property is deprecated in favor of Compatible strings and
-          inventory associations.  The enumeration should not be expanded
-          further.
 enumerations:
     - name: VersionPurpose
       description: >
@@ -41,13 +33,12 @@ enumerations:
                 The version is a version for a managed host.
           - name: PSU
             description: >
-                The version is a version for a PSU.
+                The version is a version for a PSU
 
 associations:
     - name: running
       description: >
-          This indicates the current running version for the associated
-          inventory item.
+          The current running version 003000390030
       reverse_names:
           - ran_on
       required_endpoint_interfaces:
