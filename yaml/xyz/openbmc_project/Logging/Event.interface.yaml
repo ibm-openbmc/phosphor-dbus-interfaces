@@ -39,18 +39,18 @@ enumerations:
       description: >
           Possiable severity levels for the event.
       values:
-        - name: Unknown
-          description: >
-              The event severity is unknown.
-        - name: Ok
-          description: >
-              The event severity is normal and attention is not required.
-        - name: Critical
-          description: >
-              The event severity is critical and requires immediate attention.
-        - name: Warning
-          description: >
-              The event severity is warning and requires attention.
+          - name: Unknown
+            description: >
+                The event severity is unknown.
+          - name: Ok
+            description: >
+                The event severity is normal and attention is not required.
+          - name: Critical
+            description: >
+                The event severity is critical and requires immediate attention.
+          - name: Warning
+            description: >
+                The event severity is warning and requires attention.
 
 service_names:
     - default: xyz.openbmc_project.Logging
