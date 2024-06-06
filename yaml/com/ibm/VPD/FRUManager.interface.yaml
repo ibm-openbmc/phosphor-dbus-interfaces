@@ -1,0 +1,140 @@
+description: >
+    Implement to manage VPD in the system.
+
+methods:
+    - name: WriteKeyword
+      description: >
+          Method to update a single keyword's value based on the input
+          parameters.
+      parameters:
+          - name: path
+            type: string
+            description: >
+                Path where the data resides (D-Bus inventory path/EEPROM path
+                etc).
+          - name: paramsToWriteData
+            type:
+                variant[struct[string,string,array[byte]],
+                struct[string,array[byte]]]
+            description: >
+                Parameters in required format to write the keyword's value.
+      returns:
+          - name: bytesUpdated
+            type: ssize
+            description: >
+                On success, returns the number of bytes updated. On failure,
+                returns -1.
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.InternalFailure
+
+    - name: ReadKeyword
+      description: >
+          Method to read a single keyword's value based on the input parameters.
+      parameters:
+          - name: path
+            type: string
+            description: >
+                Path where the data resides (D-Bus inventory path/EEPROM path
+                etc).
+          - name: paramsToReadData
+            type: variant[struct[string,string],struct[string]]
+            description: >
+                Parameters in required format to read the keyword's value.
+      returns:
+          - name: keywordValue
+            type: variant[array[byte]]
+            description: >
+                On success, returns the keyword's value. On failure, throws an
+                exception.
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.InternalFailure
+
+    - name: GetLocationCode
+      description: >
+          Method to get location code from the D-Bus inventory path.
+      parameters:
+          - name: inventoryPath
+            type: object_path
+            description: >
+                D-Bus inventory path of the FRU.
+      returns:
+          - name: locationCode
+            type: string
+            description: >
+                On success, returns location code. On failure, throws an
+                exception.
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.InternalFailure
+
+    - name: GetExpandedLocationCode
+      description: >
+          Method to get expanded location code for a given un-expanded location
+          code.
+      parameters:
+          - name: locationCode
+            type: string
+            description: >
+                Location code in un-expanded format.
+          - name: nodeNumber
+            type: size
+            description: >
+                Denotes the node in case of multi-node configuration. Defaulted
+                in case of single node configuration.
+      returns:
+          - name: locationCode
+            type: string
+            description: >
+                On success, returns location code in expanded format. On
+                failure, throws an exception.
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.InternalFailure
+
+    - name: deleteFRUVPD
+      description: >
+          Method to remove the FRU VPD.
+      parameters:
+          - name: inventoryPath
+            type: object_path
+            description: >
+                D-Bus inventory path of the FRU.
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.InternalFailure
+
+    - name: CollectFRUVPD
+      description: >
+          Method to perform single FRU VPD collection.
+      parameters:
+          - name: inventoryPath
+            type: object_path
+            description: >
+                D-Bus inventory path of the FRU.
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.InternalFailure
+
+properties:
+    - name: CollectionStatus
+      type: enum[self.Status]
+      default: NotStarted
+      description: >
+          VPD collection status of the system.
+
+enumerations:
+    - name: Status
+      description: >
+          VPD collection status of the system.
+      values:
+          - name: NotStarted
+            description: >
+                VPD collection has not started.
+          - name: InProgress
+            description: >
+                VPD collection is in progress.
+          - name: Completed
+            description: >
+                VPD collection is completed.
