@@ -3,6 +3,7 @@ subdir('Dump')
 subdir('Hardware')
 subdir('License')
 subdir('Logging')
+subdir('PLDM')
 subdir('VPD')
 subdir('ipzvpd')
 

@@ -1,0 +1,18 @@
+description: >
+    Implement this interface to pass Chap data details to Host which are set by
+    the user.
+
+    com.ibm.PLDM.ChapData object implements this interface.
+
+properties:
+    - name: ChapName
+      type: string
+      description: >
+          ChapName is a user selected name associated with each of the chap
+          secret user challenge.
+
+    - name: ChapSecret
+      type: string
+      description: >
+          ChapSecret is an encrypted secret user challenge transferred to the
+          Host for the respective ChapName.
