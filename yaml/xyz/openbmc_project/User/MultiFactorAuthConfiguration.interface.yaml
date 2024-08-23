@@ -4,47 +4,23 @@ description: >
     authentication mechanisms to users on the system
 
 properties:
-    - name: GoogleAuthenticatorEnabled
-      type: boolean
-      default: false
+    - name: MultiFactorAuth
+      type: set[enum[self.MultiFactorAuthType]]
       description: >
-          This property indicates whether multi-factor authentication with
-          Google Authenticator is enabled
+          Multi-factor authentication configuration. This interface  will be
+          implemented by user manager D-bus object to support user's MFA
+          configuration on BMC.
       errors:
-          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.InvalidArgument
 
-    - name: MicrosoftAuthenticatorEnabled
-      type: boolean
-      default: false
+enumerations:
+    - name: MultiFactorAuthType
       description: >
-          This property indicates whether multi-factor authentication with
-          Microsoft Authenticator is enabled
-      errors:
-          - xyz.openbmc_project.Common.Error.InternalFailure
-
-    - name: ClientCertificateEnabled
-      type: boolean
-      default: false
-      description: >
-          This property indicates whether client certificate authentication is
-          enabled
-      errors:
-          - xyz.openbmc_project.Common.Error.InternalFailure
-
-    - name: SecureIdEnabled
-      type: boolean
-      default: false
-      description: >
-          An indication of whether multi-factor authentication with RSA SecurID
-          is enabled.
-      errors:
-          - xyz.openbmc_project.Common.Error.InternalFailure
-
-    - name: OneTimePasscodeEnabled
-      type: boolean
-      default: false
-      description: >
-          An indication of whether multi-factor authentication with
-          OneTimePasscode is enabled.
-      errors:
-          - xyz.openbmc_project.Common.Error.InternalFailure
+          Multi-factor authentication type enumeration, Types of multi-factor
+          authentication user account is allowed to configure.
+      values:
+          - name: SecurID
+          - name: GoogleAuthenticator
+          - name: MicrosoftAuthenticator
+          - name: ClientCertificate
+          - name: OneTimePasscode
