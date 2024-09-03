@@ -201,3 +201,6 @@ paths:
                 The object representing _the sibling_ BMC is always at bmc1 in a
                 2 BMC system.
             value: bmc1
+    - instance: /xyz/openbmc_project/state/bmc0
+      description: >
+          The BMC redundancy path.
