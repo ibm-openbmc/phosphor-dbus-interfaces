@@ -47,3 +47,6 @@ enumerations:
             description: >
                 A user attempted to isolate hardware to proceed with the host to
                 boot.
+          - name: Spare
+            description: >
+                The isolated hardware is a spare core.
