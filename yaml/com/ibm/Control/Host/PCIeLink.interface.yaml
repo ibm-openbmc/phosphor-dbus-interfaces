@@ -1,0 +1,9 @@
+description: >
+    PCIe Link Interface is used to reset the PCIe link.
+properties:
+    - name: linkReset
+      type: boolean
+      default: false
+      description: >
+          When set to true resets the PCIe Link. The service which monitors this
+          property moves it back to the default.
