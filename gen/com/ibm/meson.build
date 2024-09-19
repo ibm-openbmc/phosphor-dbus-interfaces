@@ -1,4 +1,5 @@
 # Generated file; do not modify.
+subdir('Control')
 subdir('Dump')
 subdir('Hardware')
 subdir('License')
