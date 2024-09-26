@@ -23,9 +23,9 @@ methods:
                 Value to be updated for the keyword.
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
-          - com.ibm.VPD.Error.PathNotFound
-          - com.ibm.VPD.Error.RecordNotFound
-          - com.ibm.VPD.Error.KeywordNotFound
+          - com.ibm.VPD.Parser.Error.PathNotFound
+          - com.ibm.VPD.Parser.Error.RecordNotFound
+          - com.ibm.VPD.Parser.Error.KeywordNotFound
 
     - name: GetFRUsByUnexpandedLocationCode
       description: >
@@ -49,8 +49,8 @@ methods:
                 code.
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
-          - com.ibm.VPD.Error.LocationNotFound
-          - com.ibm.VPD.Error.NodeNotFound
+          - com.ibm.VPD.Parser.Error.LocationNotFound
+          - com.ibm.VPD.Parser.Error.NodeNotFound
 
     - name: GetFRUsByExpandedLocationCode
       description: >
@@ -69,8 +69,8 @@ methods:
                 code.
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
-          - com.ibm.VPD.Error.LocationNotFound
-          - com.ibm.VPD.Error.NodeNotFound
+          - com.ibm.VPD.Parser.Error.LocationNotFound
+          - com.ibm.VPD.Parser.Error.NodeNotFound
 
     - name: GetExpandedLocationCode
       description: >
@@ -94,8 +94,8 @@ methods:
                 Location code in expanded format.
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
-          - com.ibm.VPD.Error.LocationNotFound
-          - com.ibm.VPD.Error.NodeNotFound
+          - com.ibm.VPD.Parser.Error.LocationNotFound
+          - com.ibm.VPD.Parser.Error.NodeNotFound
 
     - name: PerformVPDRecollection
       description: >
