@@ -2,6 +2,7 @@
 subdir('Control')
 subdir('Dump')
 subdir('Hardware')
+subdir('Host')
 subdir('License')
 subdir('Logging')
 subdir('PLDM')
