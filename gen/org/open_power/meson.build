@@ -1,7 +1,6 @@
 # Generated file; do not modify.
 subdir('Common')
 subdir('Control')
-subdir('HardwareIsolation')
 subdir('Host')
 generated_others += custom_target(
     'org/open_power/Host__markdown'.underscorify(),
