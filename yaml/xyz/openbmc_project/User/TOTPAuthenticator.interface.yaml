@@ -53,6 +53,14 @@ methods:
                 Returns true if secret key setup required for given user
                 otherwise returns false.
 
+    - name: ClearSecretKey
+      description: >
+          This method clears Time-based One-time Password authenticator secret
+          key for the given user.
+      errors:
+          - xyz.openbmc_project.Common.Error.UnsupportedRequest
+          - xyz.openbmc_project.Common.Error.NotAllowed
+
 properties:
     - name: SecretKeyIsValid
       type: boolean
