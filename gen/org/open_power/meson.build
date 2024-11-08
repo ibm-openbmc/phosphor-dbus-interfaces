@@ -1,7 +1,6 @@
 # Generated file; do not modify.
 subdir('Common')
 subdir('Control')
-subdir('HardwareIsolation')
 subdir('Host')
 subdir('Inventory')
 subdir('Logging')
