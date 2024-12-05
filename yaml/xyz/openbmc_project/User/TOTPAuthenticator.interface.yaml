@@ -41,19 +41,24 @@ methods:
           - xyz.openbmc_project.Common.Error.UnsupportedRequest
           - xyz.openbmc_project.Common.Error.NotAllowed
 
-    - name: IsGenerateSecretKeyRequired
+    - name: ClearSecretKey
       description: >
-          This method returns whether TOTP authenticator secret key setup
+          This method clears Time-based One-time Password authenticator secret
+          key for the given user.
+      errors:
+          - xyz.openbmc_project.Common.Error.UnsupportedRequest
+          - xyz.openbmc_project.Common.Error.NotAllowed
+properties:
+    - name: SecretKeyGenerationRequired
+      type: boolean
+      default: false
+      flags:
+          - readonly
+      description: >
+          This property indicates whether TOTP authenticator secret key setup
           required for the given user to complete Time-based One-time Password
           authentication setup
-      returns:
-          - name: Status
-            type: boolean
-            description: >
-                Returns true if secret key setup required for given user
-                otherwise returns false.
 
-properties:
     - name: SecretKeyIsValid
       type: boolean
       default: false
