@@ -19,6 +19,21 @@ properties:
           If redundancy is currently enabled.  In general, this means that the
           BMCs are configured as active and passive and that the passive is able
           to be failed over to.
+    - name: DisableRedundancyOverride
+      type: boolean
+      default: false
+      errors:
+          - xyz.openbmc_project.Common.Error.Unavailable
+      description: >
+          This is used to immediately and persistently disable redundancy.  The
+          use case is there are test phases where redundancy is not wanted and
+          this is how that is accomplished.
+
+          If set back to true, redundancy will immediately be re-enabled,
+          assuming nothing else is preventing it.
+
+          This can only be changed on the active BMC and when power is off,
+          otherwise it will throw the Unavailable error.
 
 enumerations:
     - name: Role
