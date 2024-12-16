@@ -48,6 +48,21 @@ generated_markdown += custom_target(
     build_by_default: should_generate_markdown,
 )
 
+subdir('Collection')
+generated_others += custom_target(
+    'com/ibm/VPD/Collection__markdown'.underscorify(),
+    input: [ '../../../../yaml/com/ibm/VPD/Collection.interface.yaml',  ],
+    output: [ 'Collection.md' ],
+    depend_files: sdbusplusplus_depfiles,
+    command: [
+        sdbuspp_gen_meson_prog, '--command', 'markdown',
+        '--output', meson.current_build_dir(),
+        '--tool', sdbusplusplus_prog,
+        '--directory', meson.current_source_dir() / '../../../../yaml',
+        'com/ibm/VPD/Collection',
+    ],
+)
+
 subdir('FRUManager')
 generated_others += custom_target(
     'com/ibm/VPD/FRUManager__markdown'.underscorify(),
