@@ -28,6 +28,30 @@ methods:
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Error.InternalFailure
 
+    - name: WriteKeywordOnHardware
+      description: >
+          Method to update a single keyword's value on the hardware.
+      parameters:
+          - name: path
+            type: string
+            description: >
+                EEPROM path of the FRU.
+          - name: paramsToWriteData
+            type:
+                variant[struct[string,string,array[byte]],
+                struct[string,array[byte]]]
+            description: >
+                Parameters in required format to write the keyword's value.
+      returns:
+          - name: bytesUpdated
+            type: ssize
+            description: >
+                On success, returns the number of bytes updated. On failure,
+                returns -1.
+      errors:
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Error.InternalFailure
+
     - name: ReadKeyword
       description: >
           Method to read a single keyword's value based on the input parameters.
