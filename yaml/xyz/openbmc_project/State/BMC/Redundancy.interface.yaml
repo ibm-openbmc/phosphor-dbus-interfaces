@@ -34,6 +34,21 @@ properties:
 
           This can only be changed on the active BMC and when power is off,
           otherwise it will throw the Unavailable error.
+    - name: FailoversPaused
+      type: boolean
+      flags:
+          - readonly
+      default: false
+      description: >
+          When redundancy is enabled, there may be periods when either failovers
+          are not allowed, such as in the middle of a code update, or won't work
+          because the passive BMC is temporarily offline, such as when the
+          passive BMC reboots. A timer would be put on how long redundancy could
+          still be considered enabled in this latter case in case the passive
+          BMC never comes back.  Redundancy is left enabled initially so as to
+          not trigger any intervention that could be necessary when redundancy
+          is lost just due to a BMC reboot.  Any time the passive BMC goes
+          offline a full file sync would be necessary when it comes back.
 
 enumerations:
     - name: Role
