@@ -1,4 +1,5 @@
 # Generated file; do not modify.
+subdir('ACF')
 subdir('Authority')
 subdir('CSR')
 subdir('Certificate')
@@ -32,19 +33,26 @@ generated_sources += custom_target(
     build_by_default: should_generate_cpp,
 )
 
-subdir('ACF')
-generated_others += custom_target(
+generated_markdown += custom_target(
     'xyz/openbmc_project/Certs/ACF__markdown'.underscorify(),
-    input: [ '../../../../yaml/xyz/openbmc_project/Certs/ACF.interface.yaml',  ],
-    output: [ 'ACF.md' ],
+    input: ['../../../../yaml/xyz/openbmc_project/Certs/ACF.interface.yaml'],
+    output: ['ACF.md'],
     depend_files: sdbusplusplus_depfiles,
     command: [
-        sdbuspp_gen_meson_prog, '--command', 'markdown',
-        '--output', meson.current_build_dir(),
-        '--tool', sdbusplusplus_prog,
-        '--directory', meson.current_source_dir() / '../../../../yaml',
+        sdbuspp_gen_meson_prog,
+        '--command',
+        'markdown',
+        '--output',
+        meson.current_build_dir(),
+        '--tool',
+        sdbusplusplus_prog,
+        '--directory',
+        meson.current_source_dir() / '../../../../yaml',
         'xyz/openbmc_project/Certs/ACF',
     ],
+    install: should_generate_markdown,
+    install_dir: [inst_markdown_dir / sdbusplus_current_path],
+    build_by_default: should_generate_markdown,
 )
 
 generated_markdown += custom_target(
