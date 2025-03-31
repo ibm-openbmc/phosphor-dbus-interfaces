@@ -29,5 +29,4 @@
       unknown. Please check the HW and  IM keywords in the system VPD and check
       if they are programmed correctly.
 - name: FirmwareError
-  description:
-      A standard runtime exception thrown by VPD Manager firmware code.
+  description: A standard runtime exception thrown by VPD Manager firmware code.
