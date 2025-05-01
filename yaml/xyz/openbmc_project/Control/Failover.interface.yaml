@@ -22,6 +22,15 @@ methods:
       errors:
           - xyz.openbmc_project.Common.Error.Unavailable
 
+properties:
+    - name: FailoverInProgress
+      type: boolean
+      default: false
+      flags:
+          - readonly
+      description: >
+          Indicates that a failover is in progress.
+
 enumerations:
     - name: Requester
       description: >
