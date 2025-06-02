@@ -49,6 +49,16 @@ properties:
           not trigger any intervention that could be necessary when redundancy
           is lost just due to a BMC reboot.  Any time the passive BMC goes
           offline a full file sync would be necessary when it comes back.
+    - name: FailoversAllowed
+      type: boolean
+      flags:
+          - readonly
+      default: false
+      description: >
+          States if failovers are currently allowed. Even when redundancy is
+          enabled, a failover may not be allowed because there are periods when
+          doing a failover could cause issues, such as in the middle of a boot
+          or code update.
 
 enumerations:
     - name: Role
