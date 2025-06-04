@@ -47,6 +47,17 @@ properties:
           events, for example during a code update. This may only make sense if
           the sibling has the active role.
 
+    - name: FailoversAllowed
+      type: boolean
+      flags:
+          - readonly
+      default: false
+      description: >
+          States if failovers are currently allowed. Even when redundancy is
+          enabled, a failover may not be allowed because there are periods when
+          doing a failover could cause issues, such as in the middle of a boot
+          or code update.
+
     - name: BMCState
       type: enum[xyz.openbmc_project.State.BMC.BMCState]
       default: NotReady

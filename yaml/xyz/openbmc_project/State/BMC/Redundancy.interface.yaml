@@ -56,7 +56,6 @@ properties:
       type: boolean
       default: false
       flags:
-          - readonly
       description: >
           Indicates that a failover is in progress.
     - name: RedundancyMinimum
