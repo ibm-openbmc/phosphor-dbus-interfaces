@@ -1,0 +1,21 @@
+name: xyz.openbmc_project.Provisioning.Status
+
+properties:
+  - name: ProvisioningState
+    type: s
+    access: readwrite
+    description: >
+      Shows the provisioning state of the BMC. Example: "Provisioned" or "Unprovisioned".
+
+  - name: PendingClearProvision
+    type: b
+    access: readwrite
+    description: >
+      True means a clear provision action is pending.
+
+methods:
+  - name: ClearProvisioningData
+    description: >
+      Clears provisioned data and sets ProvisioningState to "Unprovisioned".
+    arguments: []
+
