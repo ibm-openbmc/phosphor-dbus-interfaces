@@ -52,6 +52,13 @@ properties:
           There can be a grace period between a failover being requested and the
           failover actually starting where this will be asserted to allow for
           any preparation or tracing on the other BMC.
+    - name: FailoverInProgress
+      type: boolean
+      default: false
+      flags:
+          - readonly
+      description: >
+          Indicates that a failover is in progress.
 
 enumerations:
     - name: Role
