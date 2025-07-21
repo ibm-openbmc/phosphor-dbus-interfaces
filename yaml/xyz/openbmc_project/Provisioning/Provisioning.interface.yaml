@@ -1,21 +1,38 @@
-name: xyz.openbmc_project.Provisioning.Status
+name: xyz.openbmc_project.Provisioning
+description: >
+  Interface to represent the provisioning status of the BMC.
+  Provides a property to indicate whether the BMC is provisioned,
+  and methods to initiate provisioning and check the peer BMC connection.
 
 properties:
   - name: ProvisioningState
-    type: s
-    access: readwrite
-    description: >
-      Shows the provisioning state of the BMC. Example: "Provisioned" or "Unprovisioned".
-
-  - name: PendingClearProvision
     type: b
-    access: readwrite
+    flags:
+      - readonly
+    default: false
     description: >
-      True means a clear provision action is pending.
+      True means the BMC is in a provisioned state.
+
+  # - name: PendingClearProvision
+  #   type: b
+  #   flags:
+  #     - readonly
+  #   description: >
+  #     True means a clear provision action is pending.
+  #     (Commented out as discussion is ongoing about whether this property is still needed.)
 
 methods:
-  - name: ClearProvisioningData
+  - name: StartProvisioning
     description: >
-      Clears provisioned data and sets ProvisioningState to "Unprovisioned".
+      Starts the provisioning process and updates the ProvisioningState accordingly.
     arguments: []
+
+  - name: CheckPeerBMCConnection
+    description: >
+      Performs a check to determine if the peer BMC is reachable and available for provisioning.
+    arguments: []
+    returns:
+      - type: b
+        description: >
+          True if the peer BMC is reachable; false otherwise.
 
