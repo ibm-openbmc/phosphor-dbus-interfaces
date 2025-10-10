@@ -44,3 +44,11 @@ methods:
           - xyz.openbmc_project.Common.Error.InternalFailure
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.User.Common.Error.PrivilegeMappingExists
+properties:
+    - name: AllowReadOnlyAccessToAllLDAPUsers
+      type: boolean
+      default: true
+      description: >
+          This property indicates whether to allow default readonly privilege
+          for LDAP users when respective privilege role map is not configured
+          for LDAP users.
