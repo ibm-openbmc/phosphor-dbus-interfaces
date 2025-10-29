@@ -84,6 +84,8 @@ properties:
           remain functional.
     - name: DisabledRedundancyReasons
       type: array[enum[self.DisabledRedundancyReason]]
+    - name: ReasonsForNoRedundancy
+      type: set[enum[self.ReasonForNoRedundancy]]
       flags:
           - readonly
       description: >
@@ -116,9 +118,9 @@ enumerations:
                 active BMC.  It may not have all services running, and would
                 require a failover to become active.
 
-    - name: DisabledRedundancyReason
+    - name: ReasonForNoRedundancy
       description: >
-          The possible reasons why redundancy is disabled.
+          The possible reasons why redundancy can't be enabled.
       values:
           - name: BMCNotActive
             description: >
@@ -132,9 +134,9 @@ enumerations:
           - name: SiblingNotAlive
             description: >
                 The sibling BMC is not alive.
-          - name: SiblingNotPaired
+          - name: SiblingNotProvisioned
             description: >
-                The sibling BMC is not paired.
+                The sibling BMC is not provisioned.
           - name: SiblingNotPassive
             description: >
                 The sibling BMC does not have the Passive role.
