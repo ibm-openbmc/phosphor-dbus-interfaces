@@ -28,6 +28,8 @@ methods:
             type: string
             description: >
                 Identifier of the peer BMC to be provisioned.
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
 
 signals:
     - name: PeerProvisioned
