@@ -136,3 +136,8 @@ methods:
                 Dbus path of the FRU whose VPD needs to be collected.
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
+
+    - name: DeleteAllFRUVPD
+      description: >
+          Method to clear all FRU VPD other than the system VPD from PIM
+          persisted path.
