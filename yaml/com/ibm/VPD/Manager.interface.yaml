@@ -1,197 +1,197 @@
 description: >
-    Implement to manage VPD data in system.
+  Implement to manage VPD data in system.
 methods:
-    - name: WriteKeyword
-      description: >
-          A method to update the keyword value for a given VPD record.
-      parameters:
-          - name: path
-            type: object_path
-            description: >
-                Path to the D-Bus object that represents the FRU.
-          - name: record
-            type: string
-            description: >
-                Record whose keyword value needs to be modified.
-          - name: keyword
-            type: string
-            description: >
-                Keyword whose value needs to be updated.
-          - name: value
-            type: array[byte]
-            description: >
-                Value to be updated for the keyword.
-      returns:
-          - name: bytesUpdated
-            type: ssize
-            description: >
-                On success, returns the number of bytes updated. On failure,
-                returns -1.
-      errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
+  - name: WriteKeyword
+    description: >
+        A method to update the keyword value for a given VPD record.
+    parameters:
+        - name: path
+          type: object_path
+          description: >
+              Path to the D-Bus object that represents the FRU.
+        - name: record
+          type: string
+          description: >
+              Record whose keyword value needs to be modified.
+        - name: keyword
+          type: string
+          description: >
+              Keyword whose value needs to be updated.
+        - name: value
+          type: array[byte]
+          description: >
+              Value to be updated for the keyword.
+    returns:
+        - name: bytesUpdated
+          type: ssize
+          description: >
+              On success, returns the number of bytes updated. On failure,
+              returns -1.
+    errors:
+        - xyz.openbmc_project.Common.Error.InvalidArgument
 
-    - name: UpdateKeyword
-      description: >
-          Method to update a single keyword's value based on the input
-          parameters.
-      parameters:
-          - name: path
-            type: string
-            description: >
-                Path where the data resides (D-Bus inventory path/EEPROM path
-                etc).
-          - name: paramsToWriteData
-            type:
-                variant[struct[string,string,array[byte]],
-                struct[string,array[byte]]]
-            description: >
-                Parameters in required format to write the keyword's value.
-      returns:
-          - name: bytesUpdated
-            type: ssize
-            description: >
-                On success, returns the number of bytes updated. On failure,
-                returns -1.
-      errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
+  - name: UpdateKeyword
+    description: >
+        Method to update a single keyword's value based on the input
+        parameters.
+    parameters:
+        - name: path
+          type: string
+          description: >
+              Path where the data resides (D-Bus inventory path/EEPROM path
+              etc).
+        - name: paramsToWriteData
+          type:
+              variant[struct[string,string,array[byte]],
+              struct[string,array[byte]]]
+          description: >
+              Parameters in required format to write the keyword's value.
+    returns:
+        - name: bytesUpdated
+          type: ssize
+          description: >
+              On success, returns the number of bytes updated. On failure,
+              returns -1.
+    errors:
+        - xyz.openbmc_project.Common.Error.InvalidArgument
 
-    - name: WriteKeywordOnHardware
-      description: >
-          Method to update a single keyword's value on the hardware.
-      parameters:
-          - name: path
-            type: string
-            description: >
-                EEPROM path of the FRU.
-          - name: paramsToWriteData
-            type:
-                variant[struct[string,string,array[byte]],
-                struct[string,array[byte]]]
-            description: >
-                Parameters in required format to write the keyword's value.
-      returns:
-          - name: bytesUpdated
-            type: ssize
-            description: >
-                On success, returns the number of bytes updated. On failure,
-                returns -1.
-      errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
+  - name: WriteKeywordOnHardware
+    description: >
+        Method to update a single keyword's value on the hardware.
+    parameters:
+        - name: path
+          type: string
+          description: >
+              EEPROM path of the FRU.
+        - name: paramsToWriteData
+          type:
+              variant[struct[string,string,array[byte]],
+              struct[string,array[byte]]]
+          description: >
+              Parameters in required format to write the keyword's value.
+    returns:
+        - name: bytesUpdated
+          type: ssize
+          description: >
+              On success, returns the number of bytes updated. On failure,
+              returns -1.
+    errors:
+        - xyz.openbmc_project.Common.Error.InvalidArgument
 
-    - name: ReadKeyword
-      description: >
-          Method to read a single keyword's value based on the input parameters.
-      parameters:
-          - name: path
-            type: string
-            description: >
-                EEPROM path of the FRU.
-          - name: paramsToReadData
-            type: variant[struct[string,string],string]
-            description: >
-                Parameters in required format to read the keyword's value.
-      returns:
-          - name: keywordValue
-            type: variant[array[byte]]
-            description: >
-                On success, returns the keyword's value. On failure, throws an
-                exception.
-      errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
-          - xyz.openbmc_project.Common.Device.Error.ReadFailure
+  - name: ReadKeyword
+    description: >
+        Method to read a single keyword's value based on the input parameters.
+    parameters:
+        - name: path
+          type: string
+          description: >
+              EEPROM path of the FRU.
+        - name: paramsToReadData
+          type: variant[struct[string,string],string]
+          description: >
+              Parameters in required format to read the keyword's value.
+    returns:
+        - name: keywordValue
+          type: variant[array[byte]]
+          description: >
+              On success, returns the keyword's value. On failure, throws an
+              exception.
+    errors:
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - xyz.openbmc_project.Common.Device.Error.ReadFailure
 
-    - name: GetFRUsByUnexpandedLocationCode
-      description: >
-          A method to get list of FRU D-BUS object paths for a given unexpanded
-          location code.
-      parameters:
-          - name: locationCode
-            type: string
-            description: >
-                An un-expanded Location code.
-          - name: nodeNumber
-            type: uint16
-            description: >
-                Denotes the node in case of a multi-node configuration, ignored
-                on a single node system.
-      returns:
-          - name: inventoryList
-            type: array[object_path]
-            description: >
-                List of all the FRUs D-Bus object paths for the given location
-                code.
-      errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
+  - name: GetFRUsByUnexpandedLocationCode
+    description: >
+        A method to get list of FRU D-BUS object paths for a given unexpanded
+        location code.
+    parameters:
+        - name: locationCode
+          type: string
+          description: >
+              An un-expanded Location code.
+        - name: nodeNumber
+          type: uint16
+          description: >
+              Denotes the node in case of a multi-node configuration, ignored
+              on a single node system.
+    returns:
+        - name: inventoryList
+          type: array[object_path]
+          description: >
+              List of all the FRUs D-Bus object paths for the given location
+              code.
+    errors:
+        - xyz.openbmc_project.Common.Error.InvalidArgument
 
-    - name: GetFRUsByExpandedLocationCode
-      description: >
-          A method to get list of FRU D-BUS object paths for a given expanded
-          location code.
-      parameters:
-          - name: locationCode
-            type: string
-            description: >
-                Location code in expanded format.
-      returns:
-          - name: inventoryList
-            type: array[object_path]
-            description: >
-                List of all the FRUs D-Bus object path for the given location
-                code.
-      errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
+  - name: GetFRUsByExpandedLocationCode
+    description: >
+        A method to get list of FRU D-BUS object paths for a given expanded
+        location code.
+    parameters:
+        - name: locationCode
+          type: string
+          description: >
+              Location code in expanded format.
+    returns:
+        - name: inventoryList
+          type: array[object_path]
+          description: >
+              List of all the FRUs D-Bus object path for the given location
+              code.
+    errors:
+        - xyz.openbmc_project.Common.Error.InvalidArgument
 
-    - name: GetExpandedLocationCode
-      description: >
-          An api to get expanded location code corresponding to a given
-          un-expanded location code. Expanded location codes gives the location
-          of the FRU in the system.
-      parameters:
-          - name: locationCode
-            type: string
-            description: >
-                Location code in un-expanded format.
-          - name: nodeNumber
-            type: uint16
-            description: >
-                Denotes the node in case of multi-node configuration. Ignored in
-                case of single node configuration.
-      returns:
-          - name: locationCode
-            type: string
-            description: >
-                Location code in expanded format.
-      errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
+  - name: GetExpandedLocationCode
+    description: >
+        An api to get expanded location code corresponding to a given
+        un-expanded location code. Expanded location codes gives the location
+        of the FRU in the system.
+    parameters:
+        - name: locationCode
+          type: string
+          description: >
+              Location code in un-expanded format.
+        - name: nodeNumber
+          type: uint16
+          description: >
+              Denotes the node in case of multi-node configuration. Ignored in
+              case of single node configuration.
+    returns:
+        - name: locationCode
+          type: string
+          description: >
+              Location code in expanded format.
+    errors:
+        - xyz.openbmc_project.Common.Error.InvalidArgument
 
-    - name: PerformVPDRecollection
-      description: >
-          An api to check for FRUs replaced and if required, perform
-          recollection of VPD data for them.
+  - name: PerformVPDRecollection
+    description: >
+        An api to check for FRUs replaced and if required, perform
+        recollection of VPD data for them.
 
-    - name: DeleteFRUVPD
-      description: >
-          An api to delete VPD of a given FRU and set its Present property as
-          false on DBus. This api is to be called before requesting VPD parser
-          to collect VPD of any given FRU in case of concurrent maintenance.
-      parameters:
-          - name: inventoryPath
-            type: object_path
-            description: >
-                Dbus path of the FRU whose VPD needs to be removed.
-      errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
+  - name: DeleteFRUVPD
+    description: >
+        An api to delete VPD of a given FRU and set its Present property as
+        false on DBus. This api is to be called before requesting VPD parser
+        to collect VPD of any given FRU in case of concurrent maintenance.
+    parameters:
+        - name: inventoryPath
+          type: object_path
+          description: >
+              Dbus path of the FRU whose VPD needs to be removed.
+    errors:
+        - xyz.openbmc_project.Common.Error.InvalidArgument
 
-    - name: CollectFRUVPD
-      description: >
-          An api to collect VPD of a given FRU.
-      parameters:
-          - name: inventoryPath
-            type: object_path
-            description: >
-                Dbus path of the FRU whose VPD needs to be collected.
-      errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
+  - name: CollectFRUVPD
+    description: >
+        An api to collect VPD of a given FRU.
+    parameters:
+        - name: inventoryPath
+          type: object_path
+          description: >
+              Dbus path of the FRU whose VPD needs to be collected.
+    errors:
+        - xyz.openbmc_project.Common.Error.InvalidArgument
 
     - name: GetHardwarePath
       description: >
