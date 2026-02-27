@@ -1,0 +1,15 @@
+description: >
+    Interface to perform application-specific data exchange over an already
+    established SPDM secure session between requester and responder.
+
+methods:
+    - name: ExchangeAppData
+      description: >
+          Perform application data exchange over the active SPDM secure session.
+          The session must already be established and authenticated.
+
+      errors:
+          - self.Error.AlreadyPaired
+          - xyz.openbmc_project.Common.Error.NotAllowed
+          - xyz.openbmc_project.Common.Error.InternalFailure
+          - xyz.openbmc_project.Common.Error.Timeout

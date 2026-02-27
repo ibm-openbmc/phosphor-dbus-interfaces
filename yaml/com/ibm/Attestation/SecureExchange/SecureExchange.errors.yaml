@@ -1,0 +1,4 @@
+- name: AlreadyPaired
+  description: >
+      The Responder is already paired and the requested operation cannot be
+      performed again.
