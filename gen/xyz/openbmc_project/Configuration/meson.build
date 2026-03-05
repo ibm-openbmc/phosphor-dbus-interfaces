@@ -7,6 +7,7 @@ subdir('Platform')
 subdir('Probe')
 subdir('SpdmTcpResponder')
 subdir('USBPort')
+subdir('SpdmTcpResponder')
 
 sdbusplus_current_path = 'xyz/openbmc_project/Configuration'
 
