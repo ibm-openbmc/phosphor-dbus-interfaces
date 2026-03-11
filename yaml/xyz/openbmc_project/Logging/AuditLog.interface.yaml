@@ -23,7 +23,7 @@ methods:
           sorted newest to oldest.
       parameters:
           - name: maxCount
-            type: uint32
+            type: size
             description:
                 Defines the maximum number of entries to return. Minimum value
                 is 0.
