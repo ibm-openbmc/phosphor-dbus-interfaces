@@ -83,7 +83,7 @@ properties:
           The minimum number of BMC objects needed for the redundancy group to
           remain functional.
     - name: ReasonsForNoRedundancy
-      type: set[enum[self.ReasonForNoRedundancy]]
+      type: array[enum[self.ReasonForNoRedundancy]]
       flags:
           - readonly
       description: >
