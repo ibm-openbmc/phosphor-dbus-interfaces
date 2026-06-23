@@ -1,0 +1,168 @@
+version: 1.3.0
+
+errors:
+    - name: VerificationFailed
+      severity: critical
+      metadata:
+          - name: ImageIdentifier
+            type: string
+            primary: true
+            description:
+                The identifier for the image. This shall map to
+                PackageVersionString for a PLDM package and version field for a
+                manifest based image format.
+          - name: TargetName
+            type: object_path
+            primary: true
+            description:
+                The name or identifier of the firmware target or resource.
+      errno: EINVAL
+      redfish-mapping: Update.VerificationFailed
+
+    - name: TransferFailed
+      severity: critical
+      metadata:
+          - name: ImageIdentifier
+            type: string
+            primary: true
+            description:
+                The identifier for the image. This shall map to
+                PackageVersionString for a PLDM package and version field for a
+                manifest based image format.
+          - name: TargetName
+            type: object_path
+            primary: true
+            description:
+                The name or identifier of the firmware target or resource.
+      errno: EPIPE
+      redfish-mapping: Update.TransferFailed
+
+    - name: ActivateFailed
+      severity: critical
+      metadata:
+          - name: ImageIdentifier
+            type: string
+            primary: true
+            description:
+                The identifier for the image. This shall map to
+                PackageVersionString for a PLDM package and version field for a
+                manifest based image format.
+          - name: TargetName
+            type: object_path
+            primary: true
+            description:
+                The name or identifier of the firmware target or resource.
+      errno: EFAULT
+      redfish-mapping: Update.ActivateFailed
+
+    - name: UpdateNotApplicable
+      severity: warning
+      metadata:
+          - name: ImageIdentifier
+            type: string
+            primary: true
+            description:
+                The identifier for the image. This shall map to
+                PackageVersionString for a PLDM package and version field for a
+                manifest based image format.
+          - name: TargetName
+            type: object_path
+            primary: true
+            description:
+                The name or identifier of the firmware target or resource.
+      errno: ENOTSUP
+      redfish-mapping: Update.UpdateNotApplicable
+
+events:
+    - name: TargetDetermined
+      metadata:
+          - name: TargetName
+            type: object_path
+            primary: true
+            description:
+                The name or identifier of the firmware target or resource.
+          - name: ImageIdentifier
+            type: string
+            primary: true
+            description:
+                The identifier for the image. This shall map to
+                PackageVersionString for a PLDM package and version field for a
+                manifest based image format.
+      redfish-mapping: Update.TargetDetermined
+
+    - name: TransferringToComponent
+      metadata:
+          - name: ImageIdentifier
+            type: string
+            primary: true
+            description:
+                The identifier for the image. This shall map to
+                PackageVersionString for a PLDM package and version field for a
+                manifest based image format.
+          - name: TargetName
+            type: object_path
+            primary: true
+            description:
+                The name or identifier of the firmware target or resource.
+      redfish-mapping: Update.TransferringToComponent
+
+    - name: VerifyingAtComponent
+      metadata:
+          - name: ImageIdentifier
+            type: string
+            primary: true
+            description:
+                The identifier for the image. This shall map to
+                PackageVersionString for a PLDM package and version field for a
+                manifest based image format.
+          - name: TargetName
+            type: object_path
+            primary: true
+            description:
+                The name or identifier of the firmware target or resource.
+      redfish-mapping: Update.VerifyingAtComponent
+
+    - name: InstallingOnComponent
+      metadata:
+          - name: ImageIdentifier
+            type: string
+            primary: true
+            description:
+                The identifier for the image. This shall map to
+                PackageVersionString for a PLDM package and version field for a
+                manifest based image format.
+          - name: TargetName
+            type: object_path
+            primary: true
+            description:
+                The name or identifier of the firmware target or resource.
+      redfish-mapping: Update.InstallingOnComponent
+
+    - name: UpdateSuccessful
+      metadata:
+          - name: TargetName
+            type: object_path
+            primary: true
+            description:
+                The name or identifier of the firmware target or resource.
+          - name: ImageIdentifier
+            type: string
+            primary: true
+            description:
+                The identifier for the image. This shall map to
+                PackageVersionString for a PLDM package and version field for a
+                manifest based image format.
+      redfish-mapping: Update.UpdateSuccessful
+
+    - name: ResetRequired
+      metadata:
+          - name: TargetName
+            type: object_path
+            primary: true
+            description:
+                The name or identifier of the firmware target or resource.
+          - name: ResetType
+            type: enum[xyz.openbmc_project.State.Host.Transition]
+            primary: true
+            description: The type of reset operation to perform.
+      redfish-mapping: Base.ResetRequired
