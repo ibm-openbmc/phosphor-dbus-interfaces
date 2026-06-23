@@ -1,0 +1,18 @@
+description: >
+    Implement this interface on dump manager objects to provide the
+    ability to get or create dump entries.
+
+methods:
+    - name: GetOrCreateDumpEntry
+      description: >
+          Method to get the object path of an existing in-progress dump entry
+          or create a new dump entry if one does not exist. This method checks
+          if there is already a dump entry with InProgress status. If found,
+          it returns the object path of that entry. Otherwise, it creates a
+          new dump entry and returns its object path.
+      returns:
+          - name: ObjectPath
+            type: object_path
+            description: >
+                The D-Bus object path of the in-progress dump entry (existing
+                or newly created).
