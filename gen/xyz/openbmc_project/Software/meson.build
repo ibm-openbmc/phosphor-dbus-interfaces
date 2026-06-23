@@ -328,9 +328,7 @@ generated_markdown += custom_target(
 
 generated_registry += custom_target(
     'xyz/openbmc_project/Software/Update__registry'.underscorify(),
-    input: [
-        '../../../../yaml/xyz/openbmc_project/Software/Update.events.yaml',
-    ],
+    input: ['../../../../yaml/xyz/openbmc_project/Software/Update.events.yaml'],
     output: ['Update.json'],
     depend_files: sdbusplusplus_depfiles,
     command: [
