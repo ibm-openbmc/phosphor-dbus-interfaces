@@ -38,7 +38,8 @@ enumerations:
                 Trigger type indicating the reason for SBE dump collection.
           - name: "DumpFilesPath"
             description: >
-                Path to the collected dump files, currently used by SBE dump creation.
+                Path to the collected dump files, currently used by SBE dump
+                creation.
 
     - name: SBEDumpTriggerType
       description: >
