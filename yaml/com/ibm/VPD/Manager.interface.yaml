@@ -278,8 +278,8 @@ methods:
                 variant[dict[string,dict[string,array[byte]]],
                 dict[string,variant[array[byte],string,uint64]]]
             description: >
-                Parsed VPD in the format of dictionary of <record, <keyword, value>>
-                or <keyword, value>.
+                Parsed VPD in the format of dictionary of <record, <keyword,
+                value>> or <keyword, value>.
       errors:
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Device.Error.ReadFailure
