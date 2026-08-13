@@ -1,0 +1,82 @@
+description: >
+    Interface representing the pairing state and peer connectivity status of the
+    BMC. It provides properties to indicate whether the BMC has been pairned and
+    the current connection state with the peer BMC, along with a method to
+    initiate peer pairing and a signal to report its result.
+
+properties:
+    - name: Paired
+      type: boolean
+      flags:
+          - readonly
+      description: >
+          True means the BMC is in a paired state.
+    - name: PeerConnected
+      type: enum[self.PeerConnectionStatus]
+      flags:
+          - readonly
+      default: NotDetermined
+      description: >
+          Represents the connection status with the peer BMC.
+
+methods:
+    - name: PairPeer
+      description: >
+          Starts the pairing process on the peerBmc .
+      parameters:
+          - name: bmcId
+            type: string
+            description: >
+                Identifier of the peer BMC to be paired.
+      returns:
+          - name: Path
+            type: object_path
+            description: >
+                The object path of the object that implements
+                xyz.openbmc_project.Common.Progress to track the progress of
+                paring process.
+      errors:
+          - xyz.openbmc_project.Common.Error.NotAllowed
+
+enumerations:
+    - name: PeerConnectionStatus
+      description: >
+          Enumerates the possible states of peer BMC connectivity.
+      values:
+          - name: NotDetermined
+            description: >
+                The peer connection status has not been determined yet.
+          - name: InProgress
+            description: >
+                The system is currently attempting to determine the connection
+                status with the peer BMC.
+          - name: Connected
+            description: >
+                The peer BMC is detected and reachable.
+          - name: NotConnected
+            description: >
+                Peer BMC connection failed.
+    - name: PairingStatus
+      description: >
+          Enumerates the possible states of pairing status of peer BMC.
+      values:
+          - name: DeviceAuthInProgress
+            description: >
+                Device authentication with the peer BMC is in progress.
+          - name: MeasurementVerificationInProgress
+            description: >
+                Measurement verification of the peer BMC is in progress.
+          - name: ExchangeCertificateInProgress
+            description: >
+                Certificate exchange with the peer BMC is in progress.
+          - name: PairingSuccess
+            description: >
+                Pairing configuration succeded.
+          - name: PairingFailed
+            description: >
+                Pairing configuration failed.
+
+paths:
+    - instance: /xyz/openbmc_project/Pairing
+      description: >
+          Expected path of the Pairing interface instance.
