@@ -1,8 +1,8 @@
 description: >
-    Interface representing the pairing state and peer connectivity status
-    of the BMC. It provides properties to indicate whether the BMC has been
-    pairned and the current connection state with the peer BMC, along with a
-    method to initiate peer pairing and a signal to report its result.
+    Interface representing the pairing state and peer connectivity status of the
+    BMC. It provides properties to indicate whether the BMC has been paired and
+    the current connection state with the peer BMC, along with a method to
+    initiate peer pairing and a signal to report its result.
 
 properties:
     - name: Paired
