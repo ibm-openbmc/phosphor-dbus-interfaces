@@ -19,6 +19,22 @@ methods:
           - xyz.openbmc_project.Common.Error.Unavailable
           - xyz.openbmc_project.Common.Error.InvalidArgument
           - xyz.openbmc_project.Common.Device.Error.WriteFailure
+    - name: SetAccess
+      description: >
+          Enable or disable the Chassis access for manageability.
+      parameters:
+          - name: Path
+            type: object_path
+            description: >
+                The Chassis inventory object path.
+          - name: Enable
+            type: boolean
+            description: >
+                true to enable access, false to disable access.
+      errors:
+          - xyz.openbmc_project.Common.Error.Unavailable
+          - xyz.openbmc_project.Common.Error.InvalidArgument
+          - xyz.openbmc_project.Common.Device.Error.WriteFailure
 
 enumerations:
     - name: AcquireOptions
