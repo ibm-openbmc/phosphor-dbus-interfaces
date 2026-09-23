@@ -1,0 +1,27 @@
+description: >
+    Implement to provide storage system attributes.
+properties:
+    - name: StorageFacilityMachineTypeModel
+      type: string
+      description: >
+          The machine type and model of the storage facility.
+    - name: StorageFacilitySerialNumber
+      type: string
+      description: >
+          The serial number of the storage facility.
+    - name: StorageFacilityManufacturingId
+      type: string
+      description: >
+          The manufacturing identifier of the storage facility.
+    - name: StorageSystemName
+      type: string
+      description: >
+          The name of the storage system.
+    - name: StorageSystemId
+      type: string
+      description: >
+          The identifier of the storage system.
+    - name: StorageNodeId
+      type: string
+      description: >
+          The identifier of the storage node.
