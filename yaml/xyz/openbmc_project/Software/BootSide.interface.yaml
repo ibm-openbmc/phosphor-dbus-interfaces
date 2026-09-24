@@ -1,0 +1,27 @@
+description: >
+    Interface for managing the boot sides of the BMC.
+properties:
+    - name: CurrentBootSide
+      type: enum[self.BootSides]
+      flags:
+          - readonly
+      description: >
+          Read-only property representing the current boot side of the running
+          image.
+    - name: NextBootSide
+      type: enum[self.BootSides]
+      default: "Temp"
+      description: >
+          Read-write property representing the system-wide policy for next boot
+          side.
+enumerations:
+    - name: BootSides
+      description: >
+          Possible states of a boot side.
+      values:
+          - name: "Temp"
+            description: >
+                Boot from temporary partition.
+          - name: "Perm"
+            description: >
+                Boot from permanent partition.

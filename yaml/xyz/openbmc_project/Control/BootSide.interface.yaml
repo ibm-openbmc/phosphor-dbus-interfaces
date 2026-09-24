@@ -1,0 +1,19 @@
+description: >
+    Interface for managing the boot side of a flash partition.
+properties:
+    - name: BootSide
+      type: enum[self.BootSides]
+      default: "Temp"
+      description: >
+          Property representing the boot side label for each flash partition.
+enumerations:
+    - name: BootSides
+      description: >
+          Possible states of a boot side.
+      values:
+          - name: "Temp"
+            description: >
+                Boot from temporary partition.
+          - name: "Perm"
+            description: >
+                Boot from permanent partition.
