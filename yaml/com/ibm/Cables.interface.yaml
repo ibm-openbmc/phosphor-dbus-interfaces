@@ -13,3 +13,61 @@ methods:
       errors:
           - xyz.openbmc_project.Common.Error.ResourceNotFound
           - xyz.openbmc_project.Common.Error.InternalFailure
+
+    - name: ValidateCdfpCables
+      description: >
+          Validates the CDFP cables for the requested scope and reports the
+          outcome for each cable. Checks on a cable run in order: uplink, then
+          downlink, then wiring. The first check to fail stops validation of
+          that cable, so at most one failure is reported per cable.
+      parameters:
+          - name: Scope
+            type: enum[self.Scope]
+            description: Which set of cables to inspect.
+      returns:
+          - name: Results
+            type:
+                array[struct[enum[self.Result], struct[enum[self.ChassisIndex],
+                string], struct[enum[self.ChassisIndex], string]]]
+            description: >
+                One entry per cable inspected. Each entry is, in order: the
+                cable's validation result, its source end, and its destination
+                end. A caller wanting only pass or fail can read the result
+                alone. Each end is identified by its chassis and the unexpanded
+                location code of the port the cable connects to on that chassis.
+      errors:
+          - xyz.openbmc_project.Common.Error.UnsupportedRequest
+
+enumerations:
+    - name: Scope
+      description: Which cables a validation request covers.
+      values:
+          - name: Node0
+            description: Both cables on node 0.
+          - name: Node1
+            description: Both cables on node 1.
+          - name: System
+            description: All cables across the system.
+
+    - name: Result
+      description: Outcome of validating a single cable.
+      values:
+          - name: Success
+            description: All checks on this cable passed.
+          - name: Skipped
+            description: This cable was not validated.
+          - name: UplinkFailure
+            description: The uplink check failed.
+          - name: DownlinkFailure
+            description: The downlink check failed.
+          - name: Miswired
+            description: >
+                The cable is connected to a port other than the one intended for
+                it, such as when cables are cross plugged.
+
+    - name: ChassisIndex
+      description: Chassis in the system.
+      values:
+          - name: Chassis0
+          - name: Chassis1
+          - name: Chassis2
