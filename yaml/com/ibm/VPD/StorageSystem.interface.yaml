@@ -3,25 +3,31 @@ description: >
 properties:
     - name: StorageParentMachineTypeModel
       type: string
+      default: ""
       description: >
           The machine type and model of the storage.
     - name: StorageParentSerialNumber
       type: string
+      default: ""
       description: >
           The serial number of the storage.
     - name: StorageParentManufacturingId
       type: string
+      default: ""
       description: >
           The manufacturing identifier of the storage.
     - name: StorageSystemName
       type: string
+      default: ""
       description: >
           The name of the storage system.
     - name: StorageSystemId
       type: string
+      default: ""
       description: >
           The identifier of the storage system.
     - name: StorageNodeId
       type: string
+      default: ""
       description: >
           The identifier of the storage node.
