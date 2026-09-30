@@ -1,7 +1,7 @@
 description: >
     Implement to provide storage system attributes.
 properties:
-    - name: StorageParentMachineTypeModel
+    - name: StorageParentModel
       type: string
       default: ""
       description: >
@@ -21,12 +21,12 @@ properties:
       default: ""
       description: >
           The name of the storage system.
-    - name: StorageSystemId
+    - name: StorageParentSystemId
       type: string
       default: ""
       description: >
           The identifier of the storage system.
-    - name: StorageNodeId
+    - name: StorageParentNodeId
       type: string
       default: ""
       description: >
