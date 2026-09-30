@@ -39,6 +39,21 @@ enumerations:
           - name: "Unknown"
             description: >
                 Cable status is unknown.
+          - name: "UplinkFailed"
+            description: >
+                Cable uplink connection has failed. Can be detected for cables
+                in which GPIO is defined for monitoring status of the uplink
+                port, indicating that the uplink end of the cable is not
+                properly connected or has lost signal.
+          - name: "DownlinkFailed"
+            description: >
+                Cable downlink connection has failed. Can be detected for cables
+                in which GPIO is defined for monitoring status of the downlink
+                port, indicating that the downlink end of the cable is not
+                properly connected or has lost signal.
+          - name: "Miswired"
+            description: >
+                Cable is connected to an unintended port.
 
 associations:
     - name: connecting
