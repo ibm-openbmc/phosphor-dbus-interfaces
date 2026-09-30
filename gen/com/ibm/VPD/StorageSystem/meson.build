@@ -4,9 +4,7 @@ sdbusplus_current_path = 'com/ibm/VPD/StorageSystem'
 
 generated_sources += custom_target(
     'com/ibm/VPD/StorageSystem__cpp'.underscorify(),
-    input: [
-        '../../../../../yaml/com/ibm/VPD/StorageSystem.interface.yaml',
-    ],
+    input: ['../../../../../yaml/com/ibm/VPD/StorageSystem.interface.yaml'],
     output: [
         'common.hpp',
         'server.hpp',
