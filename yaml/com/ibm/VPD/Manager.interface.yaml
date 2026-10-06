@@ -1,10 +1,10 @@
 description: >
   Implement to manage VPD data in system.
 methods:
-  - name: WriteKeyword
-    description: >
+    - name: WriteKeyword
+      description: >
         A method to update the keyword value for a given VPD record.
-    parameters:
+      parameters:
         - name: path
           type: object_path
           description: >
@@ -21,20 +21,20 @@ methods:
           type: array[byte]
           description: >
               Value to be updated for the keyword.
-    returns:
+      returns:
         - name: bytesUpdated
           type: ssize
           description: >
               On success, returns the number of bytes updated. On failure,
               returns -1.
-    errors:
+      errors:
         - xyz.openbmc_project.Common.Error.InvalidArgument
 
-  - name: UpdateKeyword
-    description: >
+    - name: UpdateKeyword
+      description: >
         Method to update a single keyword's value based on the input
         parameters.
-    parameters:
+      parameters:
         - name: path
           type: string
           description: >
@@ -46,19 +46,19 @@ methods:
               struct[string,array[byte]]]
           description: >
               Parameters in required format to write the keyword's value.
-    returns:
+      returns:
         - name: bytesUpdated
           type: ssize
           description: >
               On success, returns the number of bytes updated. On failure,
               returns -1.
-    errors:
+      errors:
         - xyz.openbmc_project.Common.Error.InvalidArgument
 
-  - name: WriteKeywordOnHardware
-    description: >
+    - name: WriteKeywordOnHardware
+      description: >
         Method to update a single keyword's value on the hardware.
-    parameters:
+      parameters:
         - name: path
           type: string
           description: >
@@ -69,19 +69,19 @@ methods:
               struct[string,array[byte]]]
           description: >
               Parameters in required format to write the keyword's value.
-    returns:
+      returns:
         - name: bytesUpdated
           type: ssize
           description: >
               On success, returns the number of bytes updated. On failure,
               returns -1.
-    errors:
+      errors:
         - xyz.openbmc_project.Common.Error.InvalidArgument
 
-  - name: ReadKeyword
-    description: >
+    - name: ReadKeyword
+      description: >
         Method to read a single keyword's value based on the input parameters.
-    parameters:
+      parameters:
         - name: path
           type: string
           description: >
@@ -90,21 +90,21 @@ methods:
           type: variant[struct[string,string],string]
           description: >
               Parameters in required format to read the keyword's value.
-    returns:
+      returns:
         - name: keywordValue
           type: variant[array[byte]]
           description: >
               On success, returns the keyword's value. On failure, throws an
               exception.
-    errors:
+      errors:
         - xyz.openbmc_project.Common.Error.InvalidArgument
         - xyz.openbmc_project.Common.Device.Error.ReadFailure
 
-  - name: GetFRUsByUnexpandedLocationCode
-    description: >
+    - name: GetFRUsByUnexpandedLocationCode
+      description: >
         A method to get list of FRU D-BUS object paths for a given unexpanded
         location code.
-    parameters:
+      parameters:
         - name: locationCode
           type: string
           description: >
@@ -114,39 +114,39 @@ methods:
           description: >
               Denotes the node in case of a multi-node configuration, ignored
               on a single node system.
-    returns:
+      returns:
         - name: inventoryList
           type: array[object_path]
           description: >
               List of all the FRUs D-Bus object paths for the given location
               code.
-    errors:
+      errors:
         - xyz.openbmc_project.Common.Error.InvalidArgument
 
-  - name: GetFRUsByExpandedLocationCode
-    description: >
+    - name: GetFRUsByExpandedLocationCode
+      description: >
         A method to get list of FRU D-BUS object paths for a given expanded
         location code.
-    parameters:
+      parameters:
         - name: locationCode
           type: string
           description: >
               Location code in expanded format.
-    returns:
+      returns:
         - name: inventoryList
           type: array[object_path]
           description: >
               List of all the FRUs D-Bus object path for the given location
               code.
-    errors:
+      errors:
         - xyz.openbmc_project.Common.Error.InvalidArgument
 
-  - name: GetExpandedLocationCode
-    description: >
+    - name: GetExpandedLocationCode
+      description: >
         An api to get expanded location code corresponding to a given
         un-expanded location code. Expanded location codes gives the location
         of the FRU in the system.
-    parameters:
+      parameters:
         - name: locationCode
           type: string
           description: >
@@ -156,64 +156,64 @@ methods:
           description: >
               Denotes the node in case of multi-node configuration. Ignored in
               case of single node configuration.
-    returns:
+      returns:
         - name: locationCode
           type: string
           description: >
               Location code in expanded format.
-    errors:
+      errors:
         - xyz.openbmc_project.Common.Error.InvalidArgument
 
-  - name: PerformVPDRecollection
-    description: >
+    - name: PerformVPDRecollection
+      description: >
         An api to check for FRUs replaced and if required, perform
         recollection of VPD data for them.
 
-  - name: DeleteFRUVPD
-    description: >
+    - name: DeleteFRUVPD
+      description: >
         An api to delete VPD of a given FRU and set its Present property as
         false on DBus. This api is to be called before requesting VPD parser
         to collect VPD of any given FRU in case of concurrent maintenance.
-    parameters:
+      parameters:
         - name: inventoryPath
           type: object_path
           description: >
               Dbus path of the FRU whose VPD needs to be removed.
-    errors:
+      errors:
         - xyz.openbmc_project.Common.Error.InvalidArgument
 
-  - name: CollectFRUVPD
-    description: >
+    - name: CollectFRUVPD
+      description: >
         An api to collect VPD of a given FRU.
-    parameters:
+      parameters:
         - name: inventoryPath
           type: object_path
           description: >
               Dbus path of the FRU whose VPD needs to be collected.
-    errors:
+      errors:
         - xyz.openbmc_project.Common.Error.InvalidArgument
 
     - name: GetHardwarePath
       description: >
-          Method to get the hardware path(s) for the corresponding inventory
-          path.
+        Method to get the hardware path(s) for the corresponding inventory
+        path.
       parameters:
-          - name: inventoryPath
-            type: object_path
-            description: >
-                Dbus inventory path of the FRU.
+        - name: inventoryPath
+          type: object_path
+          description: >
+              Dbus inventory path of the FRU.
       returns:
-          - name: hardwarePaths
-            type: array[string]
-            description: >
-                An array containing hardware paths corresponding to given D-Bus
-                object path. The first entry represents the primary hardware
-                path. All other entries(if any) represents the redundant
-                hardware paths. Note: The inventory path must be present in the
-                system configuration JSON used by vpd-manager.
+        - name: hardwarePaths
+          type: array[string]
+          description: >
+              An array containing hardware paths corresponding to given D-Bus
+              object path. The first entry represents the primary hardware
+              path. All other entries(if any) represents the redundant
+              hardware paths. Note: The inventory path must be present in the
+              system configuration JSON used by vpd-manager.
       errors:
-          - xyz.openbmc_project.Common.Error.InvalidArgument
-          - com.ibm.VPD.Error.PathNotFound
+        - xyz.openbmc_project.Common.Error.InvalidArgument
+        - com.ibm.VPD.Error.PathNotFound
 
     - name: DeleteAllFRUVPD
       description: >
