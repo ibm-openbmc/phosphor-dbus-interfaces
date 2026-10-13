@@ -5,26 +5,26 @@ description: >
 properties:
     - name: Enabled
       type: boolean
-      default: false
+      default: true
       description: >
           Indicates whether SPDM communication is enabled.
 
     - name: SecureSessionEnabled
       type: boolean
-      default: false
+      default: true
       description: >
           Indicates whether SPDM secure sessions with devices are enabled.
 
     - name: VerifyCertificate
       type: boolean
-      default: false
+      default: true
       description: >
           Indicates whether certificate verification of SPDM endpoints is
           enabled.
 
     - name: AllowExtendedAlgorithms
       type: boolean
-      default: false
+      default: true
       description: >
           Allows the use of extended SPDM algorithms as defined in DSP0274.
 
