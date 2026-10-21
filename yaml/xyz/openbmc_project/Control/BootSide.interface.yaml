@@ -4,6 +4,8 @@ properties:
     - name: BootSide
       type: enum[self.BootSides]
       default: "Temp"
+      flags:
+          - readonly
       description: >
           Property representing the boot side label for each flash partition.
 enumerations:
