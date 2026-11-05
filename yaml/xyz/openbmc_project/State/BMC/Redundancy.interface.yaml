@@ -178,6 +178,9 @@ enumerations:
           - name: CodeVersionMismatch
             description: >
                 The BMCs have different versions of code.
+          - name: BootSideMismatch
+            description: >
+                The BMCs are running on different boot sides.
           - name: SystemHWConfigIssue
             description: >
                 The non-BMC hardware configuration does not allow redundancy.
