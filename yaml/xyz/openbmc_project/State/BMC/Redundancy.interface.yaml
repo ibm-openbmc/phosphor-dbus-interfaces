@@ -178,6 +178,9 @@ enumerations:
           - name: CodeVersionMismatch
             description: >
                 The BMCs have different versions of code.
+          - name: BootSideMismatch
+            description: >
+                The BMCs are running on different boot sides.
           - name: SystemHWConfigIssue
             description: >
                 The non-BMC hardware configuration does not allow redundancy.
@@ -195,6 +198,10 @@ enumerations:
             description: >
                 The chassis the passive BMC resides in has been set to not
                 available for access by the chassis availability monitor.
+          - name: ConcurrentMaintenance
+            description: >
+                A concurrent maintenance operation affecting redundancy is in
+                progress.
 
     - name: FailoversNotAllowedReason
       description: >
@@ -234,6 +241,13 @@ enumerations:
                 from becoming active, so redundancy can't be enabled. An example
                 is it can't talk to its host processor. Replacing the BMC should
                 fix the issue.
+          - name: BMCConcurrentMaintenance
+            description: >
+                The passive BMC is being concurrently maintained.
+          - name: BMCPathConcurrentMaintenance
+            description: >
+                Hardware in the path to the passive BMC is being concurrently
+                maintained.
 signals:
     - name: Heartbeat
       description: >
